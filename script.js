@@ -94,7 +94,7 @@ function displayStoredScore() {
 }
 
 // Event listener for the submit button
-document.getElementById("submit-btn").addEventListener("click", submitQuiz);
+document.getElementById("submit").addEventListener("click", submitQuiz);
 
 // Initialize the quiz
 function initializeQuiz() {
