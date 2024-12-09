@@ -33,7 +33,7 @@ let userAnswers = JSON.parse(sessionStorage.getItem('progress')) || new Array(qu
 // Render the quiz questions and answers
 function renderQuestions() {
   const questionsElement = document.getElementById("questions");
-  questionsElement.innerHTML = ''; // Clear previous content
+  questionsElement.innerHTML = '';
   questions.forEach((question, i) => {
     const questionElement = document.createElement("div");
     questionElement.classList.add('question');
@@ -52,8 +52,7 @@ function renderQuestions() {
       }
       choiceElement.addEventListener('change', () => {
         userAnswers[i] = choice;
-        sessionStorage.setItem('progress', JSON.stringify(userAnswers)); // Save progress in session storage
-      });
+        sessionStorage.setItem('progress', JSON.stringify(userAnswers));      });
       
       const choiceLabel = document.createElement("label");
       choiceLabel.textContent = choice;
@@ -77,7 +76,7 @@ function submitQuiz() {
   });
 
   // Display the score
-  const resultElement = document.getElementById("result");
+  const resultElement = document.getElementById("score");
   resultElement.textContent = `Your score is ${score} out of ${questions.length}.`;
 
   // Store the score in localStorage
@@ -88,7 +87,7 @@ function submitQuiz() {
 function displayStoredScore() {
   const storedScore = localStorage.getItem('score');
   if (storedScore !== null) {
-    const resultElement = document.getElementById("result");
+    const resultElement = document.getElementById("score");
     resultElement.textContent = `Your previous score was ${storedScore} out of ${questions.length}.`;
   }
 }
